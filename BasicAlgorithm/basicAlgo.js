@@ -150,3 +150,22 @@ function largestOfFour4(arr, finalArr = []) {
     ? finalArr
     : largestOfFour(arr.slice(1), finalArr.concat(Math.max(...arr[0])));
 }
+
+// Confirm the Ending
+function confirmEnding(str, target) {
+  // "Never give up and good luck will find you."
+  // -- Falcor
+  return str.slice(str.length - target.length) === target;
+}
+
+confirmEnding("Bastian", "n");
+
+// (using Regular Expression)
+function confirmEnding2(str, target) {
+  // "Never give up and good luck will find you."
+  // -- Falcor
+
+  let re = new RegExp(target + "$", "i");
+
+  return re.test(str);
+}
