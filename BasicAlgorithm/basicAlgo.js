@@ -110,3 +110,43 @@ function findLongestWordLength(str) {
     return findLongestWordLength(str.slice(1, str.length).join(" "));
   }
 }
+
+// Return Largest Numbers in Arrays
+// (Procedural approach)
+
+function largestOfFour(arr) {
+  // You can do this!
+  let newArr = [];
+  for (let sub of arr) {
+    newArr.push(Math.max(...sub));
+  }
+  return newArr;
+}
+
+largestOfFour([
+  [4, 5, 1, 3],
+  [13, 27, 18, 26],
+  [32, 35, 37, 39],
+  [1000, 1001, 857, 1]
+]);
+
+// (Declarative approach)
+function largestOfFour2(arr) {
+  return arr.map(function(group) {
+    return group.reduce(function(prev, current) {
+      return current > prev ? current : prev;
+    });
+  });
+}
+
+// (Declarative approach)
+function largestOfFour3(arr) {
+  return arr.map(Function.apply.bind(Math.max, null));
+}
+
+// (Recursive approach)
+function largestOfFour4(arr, finalArr = []) {
+  return !arr.length
+    ? finalArr
+    : largestOfFour(arr.slice(1), finalArr.concat(Math.max(...arr[0])));
+}
