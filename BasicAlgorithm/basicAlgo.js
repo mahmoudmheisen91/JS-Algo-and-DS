@@ -169,3 +169,62 @@ function confirmEnding2(str, target) {
 
   return re.test(str);
 }
+
+// Repeat a String
+function repeatStringNumTimes(str, num) {
+  // repeat after me
+  if (num <= 0) return "";
+
+  let newStr = str;
+  for (let i = 1; i < num; i++) {
+    newStr += str;
+  }
+  return newStr;
+}
+
+repeatStringNumTimes("abc", 3);
+
+function repeatStringNumTimes2(str, num) {
+  var accumulatedStr = "";
+
+  while (num > 0) {
+    accumulatedStr += str;
+    num--;
+  }
+
+  return accumulatedStr;
+}
+
+function repeatStringNumTimes3(str, num) {
+  if (num < 1) {
+    return "";
+  } else if (num === 1) {
+    return str;
+  } else {
+    return str + repeatStringNumTimes(str, num - 1);
+  }
+}
+
+function repeatStringNumTimes4(str, num) {
+  return num > 0 ? str.repeat(num) : "";
+}
+
+function repeatStringNumTimes5(str, num) {
+  return num > 0 ? str + repeatStringNumTimes(str, num - 1) : "";
+}
+
+// Truncate a String
+function truncateString(str, num) {
+  // Clear out that junk in your trunk
+  if (str.length <= num) return str;
+
+  let newStr = str.slice(0, num) + "...";
+  console.log(newStr);
+  return newStr;
+}
+
+truncateString("A-tisket a-tasket A green and yellow basket", 8);
+
+function truncateString2(str, num) {
+  return str.length > num ? str.slice(0, num) + "..." : str;
+}
