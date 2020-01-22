@@ -318,3 +318,50 @@ function bouncer2(arr) {
   }
   return newArray;
 }
+
+// Where do I Belong
+function getIndexToIns(arr, num) {
+  // Find my place in this sorted array.
+  arr.sort(function(a, b) {
+    return a - b;
+  });
+
+  for (let i = 0; i < arr.length; i++) {
+    if (arr[i] >= num) return i;
+  }
+
+  return arr.length;
+}
+
+getIndexToIns([40, 60], 50);
+
+function getIndexToIns2(arr, num) {
+  // Find my place in this sorted array.
+  var times = arr.length; // runs the for loop once for each thing in the array
+  var count = 0;
+  for (var i = 0; i < times; i++) {
+    if (num > arr[i]) {
+      count++;
+    }
+  } // counts how many array numbers are smaller than num
+  return count; // the above equals num's position in a sorted array
+}
+
+function getIndexToIns3(arr, num) {
+  arr.push(num);
+  arr.sort(function(a, b) {
+    return a - b;
+  });
+  return arr.indexOf(num);
+}
+
+function getIndexToIns4(arr, num) {
+  return arr
+    .concat(num)
+    .sort((a, b) => a - b)
+    .indexOf(num);
+}
+
+function getIndexToIns5(arr, num) {
+  return arr.filter(val => num > val).length;
+}
