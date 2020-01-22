@@ -228,3 +228,21 @@ truncateString("A-tisket a-tasket A green and yellow basket", 8);
 function truncateString2(str, num) {
   return str.length > num ? str.slice(0, num) + "..." : str;
 }
+
+// Finders Keepers
+function findElement(arr, func) {
+  for (let el of arr) {
+    if (func(el)) return el;
+  }
+  return undefined;
+}
+
+findElement([1, 2, 3, 4], num => num % 2 === 0);
+
+function findElement2(arr, func) {
+  return arr.find(func);
+}
+
+function findElement3(arr, func) {
+  return arr[arr.map(func).indexOf(true)];
+}
