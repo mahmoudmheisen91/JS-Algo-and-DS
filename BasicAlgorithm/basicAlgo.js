@@ -259,3 +259,26 @@ booWho(null);
 function booWho(bool) {
   return typeof bool === "boolean";
 }
+
+// Title Case a Sentence
+function titleCase(str) {
+  let arr = str.toLowerCase().split(" ");
+  let newArr = [];
+  for (let el of arr) {
+    let ch = el.charAt(0).toUpperCase();
+    el = el.replace(el.charAt(0), ch);
+    newArr.push(el);
+  }
+
+  return newArr.join(" ");
+}
+
+titleCase("I'm a little tea pot");
+
+function titleCase(str) {
+    var convertToArray = str.toLowerCase().split(" ");
+    var result = convertToArray.map(function(val) {
+      return val.replace(val.charAt(0), val.charAt(0).toUpperCase());
+    });
+    return result.join(" ");
+  }
