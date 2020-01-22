@@ -365,3 +365,37 @@ function getIndexToIns4(arr, num) {
 function getIndexToIns5(arr, num) {
   return arr.filter(val => num > val).length;
 }
+
+// Mutations
+function mutation(arr) {
+  let arr1 = arr[0].toLowerCase().slice("");
+  let arr2 = arr[1].toLowerCase().slice("");
+
+  for (let el of arr2) {
+    if (arr1.indexOf(el) == -1) return false;
+  }
+  return true;
+}
+
+mutation(["hello", "Hello"]);
+
+function mutation2(arr) {
+  return arr[1]
+    .toLowerCase()
+    .split("")
+    .every(function(letter) {
+      return arr[0].toLowerCase().indexOf(letter) != -1;
+    });
+}
+
+// Recursive
+
+function mutation2([target, test], i = 0) {
+  target = target.toLowerCase();
+  test = test.toLowerCase();
+  return i >= test.length
+    ? true
+    : !target.includes(test[i])
+    ? false
+    : mutation([target, test], i + 1);
+}
