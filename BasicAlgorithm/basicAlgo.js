@@ -302,3 +302,19 @@ function frankenSplice2(arr1, arr2, n) {
   }
   return localArray;
 }
+
+// Falsy Bouncer
+function bouncer(arr) {
+  // Don't show a false ID to this bouncer.
+  return arr.filter(Boolean);
+}
+
+bouncer([7, "ate", "", false, 9]);
+
+function bouncer2(arr) {
+  let newArray = [];
+  for (var i = 0; i < arr.length; i++) {
+    if (arr[i]) newArray.push(arr[i]);
+  }
+  return newArray;
+}
