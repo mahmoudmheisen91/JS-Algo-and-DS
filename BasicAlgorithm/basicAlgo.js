@@ -246,3 +246,16 @@ function findElement2(arr, func) {
 function findElement3(arr, func) {
   return arr[arr.map(func).indexOf(true)];
 }
+
+// Boo who:
+function booWho(bool) {
+  // What is the new fad diet for ghost developers? The Boolean.
+  if (typeof bool == "boolean") return true;
+  return false;
+}
+
+booWho(null);
+
+function booWho(bool) {
+  return typeof bool === "boolean";
+}
