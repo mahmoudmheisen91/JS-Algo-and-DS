@@ -71,3 +71,14 @@ function destroyer(arr) {
 }
 
 console.log(destroyer([1, 2, 3, 1, 2, 3], 2, 3));
+
+// sol 2:
+function destroyer(arr) {
+    var args = Array.from(arguments).slice(1);
+    return arr.filter(function (val) {
+        return !args.includes(val);
+    });
+}
+
+// sol 3 se6:
+const destroyer = (arr, ...valsToRemove) => arr.filter(elem => !valsToRemove.includes(elem));
