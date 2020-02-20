@@ -248,3 +248,19 @@ function translatePigLatin(str) {
 
     return pigLatin;
 }
+
+// Search and Replace
+function myReplace(str, before, after) {
+    if (isUpperCase(before)) {
+        after = after[0].toUpperCase() + after.substr(1);
+    }
+
+    let arr = str.split(" ");
+    arr[arr.indexOf(before)] = after;
+
+    return arr.join(" ");
+}
+
+const isUpperCase = (string) => /^[A-Z]/.test(string);
+
+console.log(myReplace("He is Sleeping on the couch", "Sleeping", "sitting"));
