@@ -194,3 +194,18 @@ function spinalCase(str) {
         .join("-")
         .toLowerCase();
 }
+
+// Pig Latin:
+function translatePigLatin(str) {
+    if (str.match(/^[aeoiu]/g)) return str + "way";
+    if (!str.match(/[aeoiu]/g)) return str + "ay";
+
+    let arr = str.split(/(?=[aeoiu])/);
+    arr.push(arr.shift());
+    return arr.join("") + "ay";
+}
+
+console.log(translatePigLatin("california"));
+console.log(translatePigLatin("glove"));
+console.log(translatePigLatin("algorithm"));
+console.log(translatePigLatin("rhythm"));
