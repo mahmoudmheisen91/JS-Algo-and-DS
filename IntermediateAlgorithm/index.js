@@ -151,3 +151,19 @@ function whatIsInAName(collection, source) {
             });
     });
 }
+
+// Spinal Tap Case:
+function spinalCase(str) {
+    // "It's such a fine line between stupid, and clever."
+    // --David St. Hubbins
+    str = str.replace(/[\s_]/g, ' ');
+    let nstr = str.split("").map((item, index, arr) => {
+        if (item !== item.toLowerCase() && arr[index - 1] !== " ") {
+            item = " " + item;
+        }
+        return item;
+    }).join("").trim();
+    return nstr.replace(/\s/g, '-').toLowerCase();
+}
+
+console.log(spinalCase('The_Andy_Griffith_Show'));
