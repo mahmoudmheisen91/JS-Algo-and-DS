@@ -32,3 +32,13 @@ function sumAll([first, last]) {
         first + sumAll([first + step, last]) :
         first;
 }
+
+// Diff Two Arrays
+function diffArray(arr1, arr2) {
+    let arr3 = arr1.filter(item => arr2.indexOf(item) == -1);
+    let arr4 = arr2.filter(item => arr1.indexOf(item) == -1);
+
+    return arr3.concat(arr4);
+}
+
+console.log(diffArray([1, 2, 3, 5], [1, 2, 3, 4, 5]));
