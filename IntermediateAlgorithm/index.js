@@ -60,3 +60,14 @@ function diffArray(arr1, arr2) {
         return a.filter(item => b.indexOf(item) === -1);
     }
 }
+
+// Seek and Destroy:
+function destroyer(arr) {
+    let arr1 = arguments[0];
+    let arr2 = [...arguments];
+    arr2.shift();
+
+    return arr1.filter(item => !arr2.includes(item));
+}
+
+console.log(destroyer([1, 2, 3, 1, 2, 3], 2, 3));
