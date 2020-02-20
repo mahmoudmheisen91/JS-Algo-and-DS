@@ -82,3 +82,32 @@ function destroyer(arr) {
 
 // sol 3 se6:
 const destroyer = (arr, ...valsToRemove) => arr.filter(elem => !valsToRemove.includes(elem));
+
+// Wherefore art thou:
+function whatIsInAName(collection, source) {
+    var arr = [];
+
+    arr = collection.filter(item => {
+        let out = true;
+        for (let key in source) {
+            out = out && item[key] == source[key];
+        }
+        return out;
+    });
+
+    return arr;
+}
+
+console.log(whatIsInAName([{
+    "apple": 1,
+    "bat": 2
+}, {
+    "bat": 2
+}, {
+    "apple": 1,
+    "bat": 2,
+    "cookie": 2
+}], {
+    "apple": 1,
+    "bat": 2
+}));
