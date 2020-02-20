@@ -153,6 +153,7 @@ function whatIsInAName(collection, source) {
 }
 
 // Spinal Tap Case:
+// stupid solution:
 function spinalCase(str) {
     // "It's such a fine line between stupid, and clever."
     // --David St. Hubbins
@@ -167,3 +168,29 @@ function spinalCase(str) {
 }
 
 console.log(spinalCase('The_Andy_Griffith_Show'));
+
+// sol2:
+function spinalCase(str) {
+    // Replace low-upper case to low-space-uppercase
+    str = str.replace(/(([a-z])[A-Z])/g, "$1 $2");
+    // Split on whitespace and underscores and join with dash
+    return str
+        .toLowerCase()
+        .split(/[_\s]/)
+        .join("-");
+}
+
+// sol3:
+// Split the string at one of the following conditions (converted to an array)
+// a whitespace character [\s] is encountered
+// underscore character [_] is encountered
+// or is followed by an uppercase letter [(?=[A-Z])]
+function spinalCase(str) {
+    // "It's such a fine line between stupid, and clever."
+    // --David St. Hubbins
+
+    return str
+        .split(/\s|_|(?=[A-Z])/)
+        .join("-")
+        .toLowerCase();
+}
