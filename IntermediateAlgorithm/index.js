@@ -617,3 +617,31 @@ function truthCheck(collection, pre) {
     // Is everyone being true?
     return collection.every(obj => obj[pre]);
 }
+
+// Smallest Common Multiple
+function smallestCommons(arr) {
+    let out = 0;
+    let narr = [];
+    arr.sort((a, b) => a - b);
+
+    function lcm(a, b) {
+        let gcd = a;
+        let tmp = b;
+        while (tmp != 0) {
+            let ogcd = gcd;
+            gcd = tmp;
+            tmp = ogcd % tmp;
+        }
+        return a * b / gcd;
+    }
+
+    let j = 0;
+    for (let i = arr[0]; i <= arr[1]; i++) {
+        narr[j++] = i;
+    }
+
+    return narr.reduce(lcm);
+}
+
+
+console.log(smallestCommons([1, 5]));
