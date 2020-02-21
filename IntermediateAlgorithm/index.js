@@ -265,6 +265,17 @@ const isUpperCase = (string) => /^[A-Z]/.test(string);
 
 console.log(myReplace("He is Sleeping on the couch", "Sleeping", "sitting"));
 
+// best:
+function myReplace(str, before, after) {
+    if (/^[A-Z]/.test(before)) {
+        after = after[0].toUpperCase() + after.substr(1);
+    }
+
+    return str.replace(before, after);
+}
+
+console.log(myReplace("He is Sleeping on the couch", "Sleeping", "sitting"));
+
 // sol1
 function myReplace(str, before, after) {
     // Find index where before is on string
@@ -368,3 +379,25 @@ function myReplace(str, before, after) {
         )
         .join(" ");
 }
+
+// DNA Pairing:
+function pairElement(str) {
+    let arr = str.split("");
+    arr = arr.map(item => {
+        switch (item) {
+            case "G":
+                return [item, "C"];
+            case "C":
+                return [item, "G"];
+            case "A":
+                return [item, "T"];
+            case "T":
+                return [item, "A"];
+
+        }
+    });
+
+    return arr;
+}
+
+console.log(pairElement("GCG"));
