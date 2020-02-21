@@ -416,3 +416,21 @@ function pairElement(str) {
     //map character to array of character and matching pair
     return arr.map(x => [x, pairs[x]]);
 }
+
+// Convert HTML Entities
+function convertHTML(str) {
+    let sym = {
+        "&": "&amp;",
+        '"': "&quot;",
+        "'": "&apos;",
+        ">": "&gt;",
+        "<": "&lt;",
+    }
+
+    let arr = str.split("");
+    return arr.map(item => {
+        return /([&"'<>])/.test(item) ? sym[item] : item;
+    }).join("");
+}
+
+console.log(convertHTML("Dolce & Gabbana"));
