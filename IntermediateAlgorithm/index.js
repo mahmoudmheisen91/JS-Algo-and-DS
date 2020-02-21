@@ -604,3 +604,16 @@ console.log(truthCheck([{
     "user": "Po",
     "sex": "female"
 }], "sex"));
+
+// sol 1:
+function truthCheck(collection, pre) {
+    return collection.every(function (element) {
+        return element.hasOwnProperty(pre) && Boolean(element[pre]);
+    });
+}
+
+// sol 2:
+function truthCheck(collection, pre) {
+    // Is everyone being true?
+    return collection.every(obj => obj[pre]);
+}
