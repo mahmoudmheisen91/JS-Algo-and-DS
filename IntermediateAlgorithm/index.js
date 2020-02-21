@@ -434,3 +434,59 @@ function convertHTML(str) {
 }
 
 console.log(convertHTML("Dolce & Gabbana"));
+
+// sol 1
+function convertHTML(str) {
+    // Use Object Lookup to declare as many HTML entities as needed.
+    const htmlEntities = {
+        "&": "&amp;",
+        "<": "&lt;",
+        ">": "&gt;",
+        '"': "&quot;",
+        "'": "&apos;"
+    };
+    // Using a regex, replace characters with it's corresponding html entity
+    return str.replace(/([&<>\"'])/g, match => htmlEntities[match]);
+}
+
+// sol 2
+// Use Object Lookup to declare as many HTML entities as needed.
+const htmlEntities = {
+    "&": "&amp;",
+    "<": "&lt;",
+    ">": "&gt;",
+    '"': "&quot;",
+    "'": "&apos;"
+};
+//Use map function to return a filtered str with all entities changed automatically.
+return str
+    .split("")
+    .map(entity => htmlEntities[entity] || entity)
+    .join("");
+}
+
+// Map the Debris:
+function orbitalPeriod(arr) {
+    let GM = 398600.4418;
+    let earthRadius = 6367.4447;
+
+    return arr.map(obj => {
+        let a = obj.avgAlt + earthRadius;
+        let op = Math.round(2 * Math.PI * Math.sqrt(a * a * a / GM));
+        return {
+            name: obj.name,
+            orbitalPeriod: op
+        };
+    });
+}
+
+console.log(orbitalPeriod([{
+    name: "iss",
+    avgAlt: 413.6
+}, {
+    name: "hubble",
+    avgAlt: 556.7
+}, {
+    name: "moon",
+    avgAlt: 378632.553
+}]));
