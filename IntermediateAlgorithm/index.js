@@ -565,3 +565,19 @@ var Person = function (firstAndLast) {
 
 var bob = new Person('Bob Ross');
 console.log(bob.getFirstName());
+
+// sol 2: 
+var Person = function (firstAndLast) {
+    let fullName = firstAndLast.split(' ');
+
+    this.setFullName = (full) => fullName = full.split(' ');
+    this.setFirstName = (first) => fullName[0] = first;
+    this.setLastName = (last) => fullName[1] = last;
+
+    this.getFullName = () => fullName.join(' ');
+    this.getFirstName = () => fullName[0];
+    this.getLastName = () => fullName[1];
+};
+
+var bob = new Person('Bob Ross');
+console.log(bob.getFirstName());
