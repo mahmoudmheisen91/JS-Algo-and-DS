@@ -663,3 +663,37 @@ function dropElements(arr, func) {
 console.log(dropElements([1, 2, 3, 4], function (n) {
     return n > 2;
 }));
+
+// sol 1: shift
+function dropElements(arr, func) {
+    // drop them elements.
+    var times = arr.length;
+    for (var i = 0; i < times; i++) {
+        if (func(arr[0])) {
+            break;
+        } else {
+            arr.shift();
+        }
+    }
+    return arr;
+}
+
+// sol2
+function dropElements(arr, func) {
+    return arr.slice(arr.findIndex(func) >= 0 ? arr.findIndex(func) : arr.length);
+}
+
+// sol 3:
+function dropElements(arr, func) {
+    while (arr.length > 0 && !func(arr[0])) {
+        arr.shift();
+    }
+    return arr;
+}
+
+// sol 4:
+function dropElements(arr, func, i = 0) {
+    return i < arr.length && !func(arr[i]) ?
+        (dropElements(arr.slice(i + 1), func, i)) :
+        arr;
+}
