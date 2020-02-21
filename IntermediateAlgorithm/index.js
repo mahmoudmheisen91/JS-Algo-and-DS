@@ -531,3 +531,37 @@ orbitalPeriod([{
     name: "sputnik",
     avgAlt: 35873.5553
 }]);
+
+// Make a Person
+var Person = function (firstAndLast) {
+    // Complete the method below and implement the others similarly
+    let str = firstAndLast.split(" ");
+
+    this.getFirstName = function () {
+        return str[0];
+    };
+
+    this.getLastName = function () {
+        return str[1];
+    };
+
+    this.getFullName = function () {
+        return str.join(" ");
+    };
+
+    this.setFirstName = function (first) {
+        str[0] = first;
+    };
+
+    this.setLastName = function (last) {
+        str[1] = last;
+    };
+
+    this.setFullName = function (firstAndLast) {
+        str = firstAndLast.split(" ");
+    };
+
+};
+
+var bob = new Person('Bob Ross');
+console.log(bob.getFirstName());
