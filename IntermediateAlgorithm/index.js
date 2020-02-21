@@ -645,3 +645,6 @@ function smallestCommons(arr) {
 
 
 console.log(smallestCommons([1, 5]));
+
+// sols:
+// freecodecamp.org/forum/t/freecodecamp-challenge-guide-smallest-common-multiple/16075
