@@ -648,3 +648,18 @@ console.log(smallestCommons([1, 5]));
 
 // sols:
 // freecodecamp.org/forum/t/freecodecamp-challenge-guide-smallest-common-multiple/16075
+
+// Drop it:
+function dropElements(arr, func) {
+    // Drop them elements.
+    let narr = arr.map(item => func(item));
+
+    if (narr.includes(true))
+        return arr.slice(narr.indexOf(true));
+
+    return [];
+}
+
+console.log(dropElements([1, 2, 3, 4], function (n) {
+    return n > 2;
+}));
