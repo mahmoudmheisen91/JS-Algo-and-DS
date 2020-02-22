@@ -849,4 +849,16 @@ function sumPrimes(num) {
     return nums.reduce((prevSum, cur) => prevSum + cur);
 }
 
-// 
+// Arguments Optional algo
+function addTogether(...args) {
+    if (typeof (args[0]) == "number") {
+        if (typeof (args[1]) == "number") {
+            return args.reduce((sum, item) => sum + item, 0);
+        } else if (typeof (args[1]) != "undefined") return undefined;
+    } else return undefined;
+
+
+    return addTogether.bind(this, ...args);
+}
+
+console.log(addTogether(2));
