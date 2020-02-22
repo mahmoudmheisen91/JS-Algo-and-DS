@@ -818,7 +818,7 @@ function uniteUnique(...arrays) {
 // Sum All Primes:
 function sumPrimes(num) {
     let isPrime = item => {
-        let n = item / 2;
+        let n = item / 2; // sqrt(item)
         for (let i = 2; i <= n; i++) {
             if (item % i == 0) return false;
         }
@@ -834,3 +834,19 @@ function sumPrimes(num) {
 }
 
 console.log(sumPrimes(977));
+
+// sols:
+// https://www.freecodecamp.org/forum/t/freecodecamp-challenge-guide-sum-all-primes/16085
+function sumPrimes(num) {
+    let nums = Array.from({
+            length: num + 1
+        })
+        .map((_, i) => i)
+        .slice(2);
+    for (let n in nums) {
+        nums = nums.filter(val => val == nums[n] || val % nums[n] != 0);
+    }
+    return nums.reduce((prevSum, cur) => prevSum + cur);
+}
+
+// 
