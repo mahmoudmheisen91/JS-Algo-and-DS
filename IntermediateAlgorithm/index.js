@@ -743,3 +743,19 @@ function binaryAgent(str) {
         })
     );
 }
+
+// Sorted Union:
+function uniteUnique(...arr) {
+    let narr = [];
+    arr.map(item => {
+        item.map(elem => {
+            if (!narr.includes(elem)) {
+                narr.push(elem);
+            }
+        });
+    });
+
+    return narr;
+}
+
+console.log(uniteUnique([1, 3, 2], [5, 2, 1, 4], [2, 1]));
