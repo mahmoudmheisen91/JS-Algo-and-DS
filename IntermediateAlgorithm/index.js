@@ -922,3 +922,14 @@ function sumFibs(num) {
     // We filter the array to get the odd numbers and reduce them to get their sum.
     return arrFib.filter(x => x % 2 != 0).reduce((a, b) => a + b);
 }
+
+// Missing letters
+function fearNotLetter(str) {
+    let alpha = "abcdefghijklmnopqrstuvwxyz".split("");
+    let arr = str.split("");
+    let narr = alpha.slice(alpha.indexOf(arr[0]), alpha.indexOf(arr[0]) + arr.length + 1);
+
+    return narr.filter(item => !arr.includes(item))[0];
+}
+
+console.log(fearNotLetter("stvwx"));
