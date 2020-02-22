@@ -814,3 +814,23 @@ function uniteUnique(...arrays) {
     // create a Set which clears any duplicates since it's a regulat set and not a multiset
     return [...new Set(flatArray)];
 }
+
+// Sum All Primes:
+function sumPrimes(num) {
+    let isPrime = item => {
+        let n = item / 2;
+        for (let i = 2; i <= n; i++) {
+            if (item % i == 0) return false;
+        }
+        return true;
+    };
+
+    let sum = 0;
+    for (let i = 2; i <= num; i++) {
+        if (isPrime(i)) sum += i;
+    }
+
+    return sum;
+}
+
+console.log(sumPrimes(977));
