@@ -697,3 +697,30 @@ function dropElements(arr, func, i = 0) {
         (dropElements(arr.slice(i + 1), func, i)) :
         arr;
 }
+
+// Steamroller
+function steamrollArray(arr, narr = []) {
+    // I'm a steamroller, baby
+
+    var flat = function (arg) {
+        if (!Array.isArray(arg)) {
+            narr.push(arg);
+        } else {
+            for (let elem in arg) {
+                flat(arg[elem], narr);
+            }
+        }
+    };
+
+    arr.forEach(flat);
+    return narr;
+}
+
+console.log(steamrollArray([1, [2],
+    [3, [
+        [4]
+    ]]
+]));
+
+// sols:
+//https://www.freecodecamp.org/forum/t/freecodecamp-challenge-guide-steamroller/16079
