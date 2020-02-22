@@ -882,3 +882,27 @@ function addTogether() {
         args.reduce((acc, n) => (acc += n), 0) :
         n => (typeof n === "number" ? n + args[0] : undefined);
 }
+
+// Sum All Odd Fibonacci Numbersfunction sumFibs(num) {
+let fibs = item => {
+    let arr = [];
+
+    let a = 1,
+        b = 0,
+        temp, n = num;
+    while (num >= 0 && a <= n) {
+        arr.push(a);
+        temp = a;
+        a = a + b;
+        b = temp;
+        num--;
+    }
+
+    return arr;
+};
+
+let arr = fibs(num).filter(item => item % 2 != 0);
+return arr.reduce((sum, item) => sum + item, 0);
+}
+
+console.log(sumFibs(75025));
